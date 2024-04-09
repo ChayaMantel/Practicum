@@ -6,6 +6,7 @@ import { dateAfterOrEqualValidator } from '../../validators/dateAfterOrEqualVali
 import { PositionService } from '../../services/position.service';
 import { EmployeePosition } from '../../models/employeePosition.model';
 import { Position } from '../../models/position.model';
+import { duplicatePositionValidator } from '../../validators/duplicatePositionValidator ';
 
 @Component({
   selector: 'app-add-position',
@@ -21,11 +22,11 @@ export class AddPositionComponent implements OnInit {
   constructor(
     private _positinService: PositionService, private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddPositionComponent>, @Inject(MAT_DIALOG_DATA) public data: { employeePositions: EmployeePosition[], dateStart: any }) { }
- 
+
   ngOnInit(): void {
     this.loadPositions();
     this.positionForm = this.fb.group({
-      positionId: ['', Validators.required],
+      positionId: ['', Validators.required, duplicatePositionValidator(this.data.employeePositions)],
       isAdministrative: ['', Validators.required],
       dateOfEntrance: ['', Validators.required, dateAfterOrEqualValidator(this.data?.dateStart)],
     })
@@ -50,7 +51,6 @@ export class AddPositionComponent implements OnInit {
   }
 
   savePosition() {
-
     let position: EmployeePosition = this.positionForm.value;
     position.isAdministrative = this.positionForm.get('isAdministrative')?.value === 'Yes' ? true : false;
     this.dialogRef.close(position);

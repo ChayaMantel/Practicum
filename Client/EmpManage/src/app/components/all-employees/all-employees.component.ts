@@ -23,7 +23,7 @@ export class AllEmployeesComponent implements OnInit {
   currentUser: any;
 
   constructor(private _employeeService: EmployeeService, private router: Router, private datePipe: DatePipe,
-    private _authService: AuthService, private fb: FormBuilder) { }
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.loadEmployees();
@@ -46,17 +46,7 @@ export class AllEmployeesComponent implements OnInit {
   }
 
   addNewClick(): void {
-    const token = this._authService.getToken();
-    if (!token) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "You are not allowed to do it!"
-      });
-      return;
-    } else {
-      this.router.navigate(['/employee/add']);
-    }
+    this.router.navigate(['/employee/add']);
   }
 
   onEditClick(employee: Employee): void {

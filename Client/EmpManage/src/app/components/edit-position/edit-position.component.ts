@@ -3,11 +3,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { DatePipe } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { AddPositionComponent } from '../add-position/add-position.component';
 import { dateAfterOrEqualValidator } from '../../validators/dateAfterOrEqualValidator';
 import { EmployeePosition } from '../../models/employeePosition.model';
 import { Position } from '../../models/position.model';
 import { PositionService } from '../../services/position.service';
+import { duplicatePositionValidator } from '../../validators/duplicatePositionValidator ';
+import { AddPositionComponent } from '../add-position/add-position.component';
+
 
 @Component({
   selector: 'app-edit-position',
@@ -30,7 +32,7 @@ export class EditPositionComponent implements OnInit {
 
   ngOnInit(): void {
     this.positionForm = this.fb.group({
-      positionId: ['', Validators.required],
+      positionId: ['', Validators.required,duplicatePositionValidator(this.data.employeePositions)],
       isAdministrative: ['', Validators.required],
       dateOfEntrance: ['', [Validators.required, dateAfterOrEqualValidator(this.data.dateStart)]],
     });
@@ -68,7 +70,6 @@ export class EditPositionComponent implements OnInit {
     let position: EmployeePosition = this.positionForm.value;
     position.positionId = this.positionForm.get('positionId')?.value;
     position.isAdministrative = this.positionForm.get('isAdministrative')?.value === 'Yes';
-
     this.dialogRef.close(position);
   }
 

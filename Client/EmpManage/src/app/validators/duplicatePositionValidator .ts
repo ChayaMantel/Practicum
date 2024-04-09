@@ -1,7 +1,7 @@
 import { ValidatorFn, AbstractControl, ValidationErrors } from "@angular/forms";
 import { EmployeePosition } from "../models/employeePosition.model";
 
-export function duplicatePositionValidator( id:number, employeePositions: EmployeePosition[]): ValidatorFn {
+export function duplicatePositionValidator(  employeePositions: EmployeePosition[]): ValidatorFn {
  
   return (control: AbstractControl): Promise<ValidationErrors | null> => {
     const newPositionId: number = control.value as number;
@@ -13,7 +13,7 @@ export function duplicatePositionValidator( id:number, employeePositions: Employ
     return new Promise((resolve) => {
     
         const isDuplicate = employeePositions.some(
-          position => position.positionId == newPositionId && position.id!=id
+          position => position.positionId == newPositionId 
         );
         resolve(isDuplicate ? { duplicatePosition: true } : null);
     

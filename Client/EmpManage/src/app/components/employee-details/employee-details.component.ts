@@ -3,7 +3,6 @@ import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { EmployeeService } from '../../services/employee.service';
-import { AuthService } from '../../services/auth-service.service';
 import { Employee } from '../../models/employee.model';
 
 @Component({
@@ -15,23 +14,12 @@ import { Employee } from '../../models/employee.model';
 })
 export class EmployeeDetailsComponent {
   @Input() employee!: Employee;
-  constructor(private router: Router, private employeeService: EmployeeService, private _authService: AuthService,) {
+  constructor(private router: Router, private employeeService: EmployeeService) {
 
   }
   onEditClick(employee: Employee) {
-    const token = this._authService.getToken();
-    if (!token) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "you are not allowed to do it!",
-      });
-      return;
-    }
-    else {
-      this.router.navigate(['/employee/edit', employee.id])
-    }
 
+    this.router.navigate(['/employee/edit', employee.id])
   }
   onDeleteClick(employee: Employee) {
 

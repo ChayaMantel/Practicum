@@ -14,19 +14,19 @@ import { PositionService } from '../../services/position.service';
   styleUrl: './position-details.component.css'
 })
 export class PositionDetailsComponent implements OnInit {
-  positionList:Position[] = []; 
+  positionList: Position[] = [];
   @Input()
   position!: EmployeePosition;
 
-  constructor(private positionService: PositionService) {}
+  constructor(private positionService: PositionService) { }
 
   ngOnInit(): void {
     this.loadPositions();
   }
-  
+
   loadPositions(): void {
     this.positionService.getPositionList().subscribe({
-      next: (res: Position[]) => { 
+      next: (res: Position[]) => {
         this.positionList = res;
       },
       error: (err) => {
@@ -34,9 +34,9 @@ export class PositionDetailsComponent implements OnInit {
       }
     });
   }
-  
+
   getPositionName(): string {
-    const foundPosition = this.positionList.find((p: Position) => p.id === this.position.positionId); 
+    const foundPosition = this.positionList.find((p) => p.id == this.position.positionId);
     return foundPosition ? foundPosition.name : 'Position not found';
   }
 }

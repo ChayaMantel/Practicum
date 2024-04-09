@@ -6,10 +6,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { EmployeeService } from '../../services/employee.service';
-import { AddPositionComponent } from '../add-position/add-position.component';
 import { PositionDetailsComponent } from '../position-details/position-details.component';
 import { EmployeePosition } from '../../models/employeePosition.model';
 import { Employee } from '../../models/employee.model';
+import { AddPositionComponent } from '../add-position/add-position.component';
+
 
 @Component({
   selector: 'app-add-employee',
