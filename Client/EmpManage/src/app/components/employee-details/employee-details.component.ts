@@ -29,7 +29,7 @@ export class EmployeeDetailsComponent {
       return;
     }
     else {
-      this.router.navigate(['/editEmployee', employee.id])
+      this.router.navigate(['/employee/edit', employee.id])
     }
 
   }

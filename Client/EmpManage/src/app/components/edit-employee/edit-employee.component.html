@@ -82,7 +82,7 @@
         @for(position of employeeForm.controls['employeePositions'].value; let i=$index ;track position?.id) {
             <div>
                 <button class="btn btn-sm btn-info" (click)="updatePosition(position,i)">
-                    <i class="bi bi-pencil"></i> Update
+                    <i class="bi bi-pencil"></i> Edit
                 </button>
                 <button class="btn btn-sm btn-danger" (click)="deletePosition(i)">
                     <i class="bi bi-trash"></i> Delete

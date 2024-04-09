@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       }
     );
     sessionStorage.setItem('name', lastname);
-    this.router.navigate(["/allEmployee"]);
+    this.router.navigate(["/employee/all"]);
   }
 
 }

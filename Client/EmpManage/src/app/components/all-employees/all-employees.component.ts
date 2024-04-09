@@ -55,12 +55,12 @@ export class AllEmployeesComponent implements OnInit {
       });
       return;
     } else {
-      this.router.navigate(['/addEmployee']);
+      this.router.navigate(['/employee/add']);
     }
   }
 
   onEditClick(employee: Employee): void {
-    this.router.navigate(['/editEmployee', employee.id]);
+    this.router.navigate(['/employee/edit', employee.id]);
   }
 
   filteredEmployees(): Employee[] {

@@ -59,7 +59,7 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   closeAdd() {
-    this.router.navigate(['/allEmployee'])
+    this.router.navigate(['/employee/all'])
   }
 
   save() {
@@ -70,10 +70,10 @@ export class AddEmployeeComponent implements OnInit {
       next: (response) => {
         Swal.fire({
           title: "Add!",
-          text: "The personal detaild added successfully",
+          text: "The personal details added successfully",
           icon: "success"
         });
-        this.router.navigate(['/allEmployee'])
+        this.router.navigate(['/employee/all'])
 
       },
       error: (error) => {

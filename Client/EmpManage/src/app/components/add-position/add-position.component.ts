@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { dateAfterOrEqualValidator } from '../../dateAfterOrEqualValidator';
+import { dateAfterOrEqualValidator } from '../../validators/dateAfterOrEqualValidator';
 import { PositionService } from '../../services/position.service';
 import { EmployeePosition } from '../../models/employeePosition.model';
 import { Position } from '../../models/position.model';

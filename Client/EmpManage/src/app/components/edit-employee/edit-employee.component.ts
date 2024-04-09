@@ -27,7 +27,6 @@ export class EditEmployeeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService,
-    private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
     public datePipe: DatePipe,
@@ -104,7 +103,7 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   close(): void {
-    this.router.navigate(['/allEmployee']);
+    this.router.navigate(['/employee/all']);
   }
 
   addPosition(): void {
@@ -126,7 +125,7 @@ export class EditEmployeeComponent implements OnInit {
       const updatedEmployee: Employee = this.employeeForm.value;
       this.employeeService.updateEmployee(this.employee.id, updatedEmployee).subscribe(
         () => {
-          this.router.navigate(['/allEmployee', updatedEmployee]);
+          this.router.navigate(['/employee/all']);
         },
         (error) => {
           console.log(error);

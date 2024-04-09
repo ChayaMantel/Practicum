@@ -4,7 +4,7 @@ import { DatePipe } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { AddPositionComponent } from '../add-position/add-position.component';
-import { dateAfterOrEqualValidator } from '../../dateAfterOrEqualValidator';
+import { dateAfterOrEqualValidator } from '../../validators/dateAfterOrEqualValidator';
 import { EmployeePosition } from '../../models/employeePosition.model';
 import { Position } from '../../models/position.model';
 import { PositionService } from '../../services/position.service';

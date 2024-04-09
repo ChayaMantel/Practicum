@@ -1,5 +1,5 @@
 import { ValidatorFn, AbstractControl, ValidationErrors } from "@angular/forms";
-import { EmployeePosition } from "./models/employeePosition.model";
+import { EmployeePosition } from "../models/employeePosition.model";
 
 export function duplicatePositionValidator( id:number, employeePositions: EmployeePosition[]): ValidatorFn {
  
