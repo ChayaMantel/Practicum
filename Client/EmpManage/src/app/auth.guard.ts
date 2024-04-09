@@ -8,12 +8,12 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+
     if (this.authService.getToken()) {
       return true;
     } else {
@@ -22,7 +22,6 @@ export class AuthGuard implements CanActivate {
         title: "Oops...",
         text: "You are not allowed to do it!"
       });
-      this.router.navigate(['/login']); 
       return false;
     }
   }
