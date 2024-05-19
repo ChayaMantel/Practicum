@@ -1,9 +1,9 @@
-<h1>Add new Employee</h1>
+<h1 class="title">Add new Employee</h1>
 <div class="employee-container">
   <div class="employee-form">
     <form [formGroup]="employeeForm">
 
-      <label for="identity">Id</label>
+      <label for="identity">ID</label>
       <input type="text" id="identity" formControlName="identity" class="form-control">
 
       @if (employeeForm.controls['identity'].errors) {

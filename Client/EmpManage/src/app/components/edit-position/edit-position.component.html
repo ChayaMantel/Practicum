@@ -1,8 +1,7 @@
-<h1>Edit Position </h1>
+<h1 class="title">Edit Position </h1>
 <div class="position-container">
     <div class="position-form">
         <form [formGroup]="positionForm">
-
             <label for="positionId">Id</label>
             <select id="positionId" formControlName="positionId" class="form-control">
                 @for( position of positionList ; track position.id){
@@ -14,7 +13,7 @@
 
             @if(positionForm.get('positionId')?.errors?.['required']){
 
-            <p class="text-danger">Position is required</p>
+            <p class="text-danger">Position is required</p> 
 
             }
          

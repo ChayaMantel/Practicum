@@ -1,3 +1,19 @@
+הערה לבודקת
+את ה login ביצעתי על ידי שם משפחה ותעודת זהות 
+ובדיקה מול ה server האם למשתמש זה יש תפקיד ניהולי 
+אך  על מנת להקל על הבדיקה עשיתי גם אפשרות 
+על ידי 
+last name:  admin
+identity:  123456789
+
+Note to examiner
+I logged in using my last name and ID card
+and checking with the server whether this user has an administrative role
+But in order to facilitate the test I also made an option
+By:
+last name: admin
+identity: 123456789
+
 # Employee
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.

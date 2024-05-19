@@ -3,7 +3,6 @@ import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Va
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { EmployeeService } from '../../services/employee.service';
 import { PositionDetailsComponent } from '../position-details/position-details.component';
@@ -25,7 +24,7 @@ export class AddEmployeeComponent implements OnInit {
   public employeePositions: EmployeePosition[] = [];
 
   constructor(private _employeeService: EmployeeService, private fb: FormBuilder, private router: Router,
-    public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     const nameFormatRegex: RegExp = /^[A-Za-z]+$/;
@@ -78,10 +77,7 @@ export class AddEmployeeComponent implements OnInit {
 
       },
       error: (error) => {
-        this._snackBar.open('Something went wrong pls try again', 'Dismiss', {
-          duration: 3000,
-          panelClass: ['error-snackbar']
-        });
+        console.log(error)
       }
     });
   }

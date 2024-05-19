@@ -1,9 +1,9 @@
-<h1>Edit Employee</h1>
+<h1 class="title">Edit Employee</h1>
 <div class="employee-container">
     <div class="employee-form">
         <form [formGroup]="employeeForm">
             <div class="form-group">
-                <label for="identity">Id</label>
+                <label for="identity">Position</label>
                 <input type="text" id="identity" formControlName="identity" class="form-control">
 
                 @if (employeeForm.controls['identity'].errors) {
@@ -80,7 +80,7 @@
         </form>
 
         @for(position of employeeForm.controls['employeePositions'].value; let i=$index ;track position?.id) {
-            <div>
+            <div class ="position">
                 <button class="btn btn-sm btn-info" (click)="updatePosition(position,i)">
                     <i class="bi bi-pencil"></i> Edit
                 </button>

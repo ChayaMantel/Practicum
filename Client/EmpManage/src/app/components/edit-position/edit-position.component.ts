@@ -32,9 +32,9 @@ export class EditPositionComponent implements OnInit {
 
   ngOnInit(): void {
     this.positionForm = this.fb.group({
-      positionId: ['', Validators.required,duplicatePositionValidator(this.data.employeePositions)],
+      positionId: ['', Validators.required],
       isAdministrative: ['', Validators.required],
-      dateOfEntrance: ['', [Validators.required, dateAfterOrEqualValidator(this.data.dateStart)]],
+      dateOfEntrance: ['', Validators.required, dateAfterOrEqualValidator(this.data.dateStart)],
     });
 
     this.loadPositions();
